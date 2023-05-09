@@ -1,5 +1,7 @@
 ﻿using Limit_Order_Book.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Limit_Order_Book
 {
@@ -15,11 +17,12 @@ namespace Limit_Order_Book
         {
             services.AddMvc();
 
-            var connection = configuration.GetConnectionString("DefaultConnection");
+            var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DatabaseContxt>(options => options.UseSqlite(connection));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        [Obsolete]
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
         {
             if(env.IsDevelopment())
             {
@@ -31,7 +34,7 @@ namespace Limit_Order_Book
             {
             routes.MapRoute(
                 name: "default",
-                template: "{controller=product}/{action=Index}/{id}");
+                template: "{controller=Product}/{action=Index}/{id?}");
             });
         }
     }
