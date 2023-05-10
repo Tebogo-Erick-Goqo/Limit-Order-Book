@@ -13,6 +13,6 @@ namespace Limit_Order_Book.Entities
         { 
         }
 
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
     }
 }

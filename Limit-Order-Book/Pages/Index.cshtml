@@ -4,7 +4,36 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+
+    <h3>Order List</h3>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Side</th>
+        </tr>
+        @foreach (var orders in ViewBag.Orders)
+        {
+            <tr>
+                <td>@orders.Id</td>
+                <td>@orders.Name</td>
+                <td>@orders.Price</td>
+                <td>@orders.Quantity</td>
+                <td>Edit | Delete</td>
+            </tr>
+        }
+    </table>
+
+
+</body>
+
+</html>

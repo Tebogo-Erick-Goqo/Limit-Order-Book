@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Limit_Order_Book.Entities
 {
-    [Table("product")]
-    public class Product
+    [Table("orders")]
+    public class Orders
     {
         [Key]
         public int Id { get; set; }
