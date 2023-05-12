@@ -1,0 +1,44 @@
+﻿@model Limit_Order_Book.Entities.Orders
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+
+    <h3>Edit Order</h3>
+    <form method="post" asp-controller="order" asp-action="edit">
+        <table cellpadding="2" cellspacing="2">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" asp-for="Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <input type="number" min="0" asp-for="Price" />
+                </td>
+            </tr>
+            <tr>
+                <
+                <td>Quantity</td>
+                <td>
+                    <input type="number" min="0" asp-for="Quantity" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Save" />
+                    <input type="hidden" asp-for="Id" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

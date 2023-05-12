@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Limit_Order_Book.Controllers
 {
     [Route("orders")]
-    public class ProductController : Controller
+    public class OrderController : Controller
     {
         private readonly DatabaseContxt db;
 
-        public ProductController(DatabaseContxt _db)
+        public OrderController(DatabaseContxt _db)
         {
             db = _db;
         }
@@ -43,6 +43,23 @@ namespace Limit_Order_Book.Controllers
         public IActionResult Delete(int id)
         {
             db.Orders.Remove(db.Orders.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Route("edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            var order = db.Orders.Find(id);
+            return View("Edit", order);
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public IActionResult Edit(Orders orders)
+        {
+            db.Orders.Add(orders);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

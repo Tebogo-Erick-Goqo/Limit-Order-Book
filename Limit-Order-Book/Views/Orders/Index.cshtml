@@ -28,7 +28,8 @@
                     <td>@order.Price</td>
                     <td>@order.Quantity</td>
                     <td>
-                        Edit
+                        <a asp-controller="order" asp-action="edit" asp-route-itemid="@order.Id">Edit</a>
+
                         <a asp-controller="order" asp-action="delete" asp-route-itemid="@order.Id"
                            onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
