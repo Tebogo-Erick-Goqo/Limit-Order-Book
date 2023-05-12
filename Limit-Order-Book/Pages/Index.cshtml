@@ -21,15 +21,18 @@
             <th>Quantity</th>
             <th>Side</th>
         </tr>
-        @foreach (var orders in ViewBag.Orders)
+        @if (ViewBag.orders != null)
         {
-            <tr>
-                <td>@orders.Id</td>
-                <td>@orders.Name</td>
-                <td>@orders.Price</td>
-                <td>@orders.Quantity</td>
-                <td>Edit | Delete</td>
-            </tr>
+            foreach (var order in ViewBag.orders)
+            {
+                <tr>
+                    <td>@order.Id</td>
+                    <td>@order.Name</td>
+                    <td>@order.Price</td>
+                    <td>@order.Quantity</td>
+                    <td>Edit | Delete</td>
+                </tr>
+            }
         }
     </table>
 

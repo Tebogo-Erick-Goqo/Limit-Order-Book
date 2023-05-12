@@ -4,7 +4,7 @@
       "type": "secrets.user"
     },
     "sqlite1": {
-      "secretStore": "LocalSecretsFile",
+      "secretStore": null,
       "type": "sqlite.local",
       "connectionId": "ConnectionStrings:DefaultConnection",
       "dynamicId": null
