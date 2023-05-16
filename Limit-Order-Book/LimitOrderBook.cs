@@ -106,12 +106,6 @@ public class LimitOrderBook
     }
 }
 
-public enum OrderType
-{
-    Bid,
-    Ask
-}
-
 public class Order
 {
     public OrderType Type { get; set; }
